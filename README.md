@@ -1,79 +1,25 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <title>Weer Dashboard Nederland & België</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #eef1f5;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .card {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .location {
-      font-weight: bold;
-      margin-bottom: 10px;
-      font-size: 1.2em;
-    }
-    .weather {
-      font-size: 1.1em;
-    }
-  </style>
-</head>
-<body>
 
-<h1>Weer Nederland & België</h1>
 
-<div class="grid">
-  <div class="card" id="weather-nl-north"></div>
-  <div class="card" id="weather-nl-south"></div>
-  <div class="card" id="weather-be-flanders"></div>
-  <div class="card" id="weather-be-wallonia"></div>
-</div>
+<!--
+  <<< Author notes: Step 3 >>>
+  Start this step by acknowledging the previous step.
+  Define terms and link to docs.github.com.
+  Historic note: previous version checked the homepage content was not empty.
+-->
 
-<script>
-  const apiKey = "c078e3a0dcb9f7a046398ed9ca4da3b4";
+## Step 3: Customize your homepage
 
-  const locations = [
-    { id: "weather-nl-north", name: "Noord Nederland (Groningen)", lat: 53.2194, lon: 6.5665 },
-    { id: "weather-nl-south", name: "Zuid Nederland (Eindhoven)", lat: 51.4416, lon: 5.4697 },
-    { id: "weather-be-flanders", name: "Vlaanderen (Gent)", lat: 51.0536, lon: 3.7304 },
-    { id: "weather-be-wallonia", name: "Wallonië (Namen)", lat: 50.4669, lon: 4.8674 }
-  ];
+_Nice work setting the theme! :sparkles:_
 
-  locations.forEach(loc => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${loc.lat}&lon=${loc.lon}&units=metric&lang=nl&appid=${apiKey}`)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById(loc.id).innerHTML = `
-          <div class="location">${loc.name}</div>
-          <div class="weather">
-            🌡️ Temperatuur: ${data.main.temp}°C<br>
-            💧 Vochtigheid: ${data.main.humidity}%<br>
-            🌬️ Wind: ${data.wind.speed} m/s<br>
-            🌤️ ${data.weather[0].description}
-          </div>
-        `;
-      })
-      .catch(err => {
-        document.getElementById(loc.id).innerHTML = `<p>Kon het weer niet laden voor ${loc.name}</p>`;
-      });
-  });
-</script>
+You can customize your homepage by adding content to either an `index.md` file or the `README.md` file. GitHub Pages first looks for an `index.md` file. Your repository has an `index.md` file so we can update it to include your personalized content.
 
-</body>
-</html>
+### :keyboard: Activity: Create your homepage
+
+1. Browse to the `index.md` file in the `my-pages` branch.
+1. In the upper right corner, open the file editor.
+1. Type the content you want on your homepage. You can use Markdown formatting on this page.
+1. (optional) You can also modify `title:` or just ignore it for now. We'll discuss it in the next step.
+1. Commit your changes to the `my-pages` branch.
+1. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
+
+
